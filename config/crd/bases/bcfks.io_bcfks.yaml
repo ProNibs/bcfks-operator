@@ -36,7 +36,7 @@ spec:
             description: BCFKSSpec defines the desired state of BCFKS
             properties:
               secretName:
-                description: secretName defines the secret to watch
+                description: SecretName defines the secret to watch
                 type: string
             required:
             - secretName
