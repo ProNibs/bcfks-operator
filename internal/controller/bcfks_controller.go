@@ -25,6 +25,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
 	bcfksiov1alpha1 "github.com/ProNibs/bcfks-operator/api/v1alpha1"
+	v1 "k8s.io/api/core/v1"
 )
 
 // BCFKSReconciler reconciles a BCFKS object
@@ -36,6 +37,7 @@ type BCFKSReconciler struct {
 //+kubebuilder:rbac:groups=bcfks.io,resources=bcfks,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=bcfks.io,resources=bcfks/status,verbs=get;update;patch
 //+kubebuilder:rbac:groups=bcfks.io,resources=bcfks/finalizers,verbs=update
+//+kubebuilder:rbac:groups=core,resources=secrets,verbs=get;list;watch;create;update;patch;delete
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -50,6 +52,8 @@ func (r *BCFKSReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl
 	_ = log.FromContext(ctx)
 
 	// TODO(user): your logic here
+	bcfks := &bcfksiov1alpha1.BCFKS{}
+	err := r.Get(ctx, req.NamespacedName, bcfks)
 
 	return ctrl.Result{}, nil
 }
@@ -58,5 +62,6 @@ func (r *BCFKSReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl
 func (r *BCFKSReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&bcfksiov1alpha1.BCFKS{}).
+		Owns(&v1.secret{}).
 		Complete(r)
 }
