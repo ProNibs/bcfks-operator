@@ -28,14 +28,20 @@ type BCFKSSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of BCFKS. Edit bcfks_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// secretName defines the secret to watch
+	// +kubebuilder:validation:Required
+	// +operator-sdk:csv:customresourcedefinitions:type=spec
+	secretName string `json:"secretName"`
 }
 
 // BCFKSStatus defines the observed state of BCFKS
 type BCFKSStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+
+	// Conditions store the status conditions of the BCFKS objects
+	// +operator-sdk:csv:customresourcedefinitions:type=status
+	Conditions []metav1.Condition `json:"conditions,omitempty" patchStrategy:"merge" patchMergeKey:"type" protobuf:"bytes,1,rep,name=conditions"`
 }
 
 //+kubebuilder:object:root=true
