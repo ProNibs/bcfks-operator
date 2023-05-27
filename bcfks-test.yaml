@@ -1,0 +1,7 @@
+kind: BCFKS
+apiVersion: bcfks.io/v1alpha1
+metadata:
+  name: test
+  namespace: bcfks-operator-system
+spec:
+  secretName: test
