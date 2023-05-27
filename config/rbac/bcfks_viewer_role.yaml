@@ -12,7 +12,7 @@ metadata:
   name: bcfks-viewer-role
 rules:
 - apiGroups:
-  - bcfks.io.bcfks.io
+  - bcfks.io
   resources:
   - bcfks
   verbs:
@@ -20,7 +20,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - bcfks.io.bcfks.io
+  - bcfks.io
   resources:
   - bcfks/status
   verbs:

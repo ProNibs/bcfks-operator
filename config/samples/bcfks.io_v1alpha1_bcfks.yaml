@@ -1,4 +1,4 @@
-apiVersion: bcfks.io.bcfks.io/v1alpha1
+apiVersion: bcfks.io/v1alpha1
 kind: BCFKS
 metadata:
   labels:
