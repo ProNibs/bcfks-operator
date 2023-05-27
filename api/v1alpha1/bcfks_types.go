@@ -28,10 +28,10 @@ type BCFKSSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// secretName defines the secret to watch
+	// SecretName defines the secret to watch
 	// +kubebuilder:validation:Required
 	// +operator-sdk:csv:customresourcedefinitions:type=spec
-	secretName string `json:"secretName"`
+	SecretName string `json:"secretName"`
 }
 
 // BCFKSStatus defines the observed state of BCFKS

@@ -62,6 +62,6 @@ func (r *BCFKSReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl
 func (r *BCFKSReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&bcfksiov1alpha1.BCFKS{}).
-		Owns(&v1.secret{}).
+		Owns(&v1.Secret{}).
 		Complete(r)
 }
