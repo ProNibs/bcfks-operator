@@ -1,0 +1,12 @@
+apiVersion: bcfks.io.bcfks.io/v1alpha1
+kind: BCFKS
+metadata:
+  labels:
+    app.kubernetes.io/name: bcfks
+    app.kubernetes.io/instance: bcfks-sample
+    app.kubernetes.io/part-of: bcfks-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: bcfks-operator
+  name: bcfks-sample
+spec:
+  # TODO(user): Add fields here

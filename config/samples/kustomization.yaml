@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- bcfks.io_v1alpha1_bcfks.yaml
+#+kubebuilder:scaffold:manifestskustomizesamples
