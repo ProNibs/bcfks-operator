@@ -55,7 +55,7 @@ func (r *BCFKSReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl
 	bcfks := &bcfksiov1alpha1.BCFKS{}
 	err := r.Get(ctx, req.NamespacedName, bcfks)
 
-	return ctrl.Result{}, nil
+	return ctrl.Result{}, err
 }
 
 // SetupWithManager sets up the controller with the Manager.
